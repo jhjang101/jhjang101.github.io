@@ -38,4 +38,4 @@ for line in body.find_all('w:p'):
 ```
 
  In addition to the extraction functionality covered in the previous sections, `BeautifulSoup` also has more advanced features that can be useful when working
-with XML file such as edit structure, tag, and strings. Once edit the XML data, we can simply create new docx file form it using  the `zipdfile`.
+with XML file such as edit structure, tag, and strings. Once edit the XML data, we can simply create new docx file form it using  the `zipfile`.
