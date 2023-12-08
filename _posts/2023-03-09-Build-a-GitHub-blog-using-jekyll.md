@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Build a GitHub Blog using Jekyll"
+last_modified_at: 2023-12-08
 ---
 
 Jekyll is a static site generator created by Tom Preston-Werner, a founder and former CEO of GitHub. Jekyll is written in Ruby and generates a complete website from files written in markup languages such as Markdown and HTML. 
