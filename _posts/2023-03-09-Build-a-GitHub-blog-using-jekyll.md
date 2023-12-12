@@ -1,5 +1,6 @@
 ---
 layout: single
+classes: wide
 title: "Build a GitHub Blog using Jekyll"
 last_modified_at: 2023-12-08
 ---
