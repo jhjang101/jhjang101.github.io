@@ -5,11 +5,11 @@ author_profile: true
 title: "Projects" 
 
 feature_row:
-  - image_path: assets/images/project.jpg
-    alt: "Project1"
-    title: "Comming soon"
-    excerpt: "Place holder - Short explanation of project1."
-    url: "/portfolio/project1/"
+  - image_path: assets/images/Exam_gen.png
+    alt: "Exam_Gen"
+    title: "Exam_Gen"
+    excerpt: "Python script to create diverse sets of tests with shuffled answer orders."
+    url: https://github.com/jhjang101/Exam_Gen?tab=readme-ov-file#exam_gen-create-shuffled-test-forms
     btn_label: "Read More"
     btn_class: "btn--primary"	
   - image_path: assets/images/project.jpg
