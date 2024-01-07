@@ -12,11 +12,11 @@ feature_row:
     url: https://github.com/jhjang101/Exam_Gen?tab=readme-ov-file#exam_gen-create-shuffled-test-forms
     btn_label: "Read More"
     btn_class: "btn--primary"	
-  - image_path: assets/images/project.jpg
-    alt: "Project2"
-    title: "Comming soon"
-    excerpt: "Place holder - Short explanation of project2."
-    url: "/portfolio/project2/"
+  - image_path: assets/images/IB2QTI.png
+    alt: "IB2QTI"
+    title: "QTI Converter for IB Questionbank"
+    excerpt: "Converting DOCX files generated from International Baccalaureate (IB) Questionbank to QTI format."
+    url: https://github.com/jhjang101/IB2QTI?tab=readme-ov-file#qti-converter-for-ib-questionbank-docx-files
     btn_label: "Read More"
     btn_class: "btn--primary"	
   - image_path: assets/images/project.jpg
