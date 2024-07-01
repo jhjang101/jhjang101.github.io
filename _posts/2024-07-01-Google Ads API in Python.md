@@ -6,7 +6,6 @@ last_modified_at:
 ---
 
 ## Introduction
-
 Google provides multiple interfaces to manage Google Ads in addition to the standard web-based interface. While it is a popular choice among developers and analysts, setting up the Google Ads API can sometimes be a frustrating experience, as there are many small steps to follow. No need to worry, though. It's easy once you know how to do it. It's not rocket science, and even beginners like me can find all the necessary information. It just takes time, and I would like to share the exact steps to follow to save you time. To make Google Ads API calls, the following tokens are needed:
 
 - Developer token
@@ -18,7 +17,6 @@ Google provides multiple interfaces to manage Google Ads in addition to the stan
 Here, I will describe the process step by step on how to interface with Google Ads in Python using the Google Ads API.
 
 ## 1. Create a Google Ads Manager Account (MCC)
-
 The Google Ads API is only available to manager accounts (MCC). A manager account can view and manage multiple Google Ads accounts.
 
 ![](/assets/images/Google-Ads-API-1-hierarchy.png)
@@ -30,7 +28,6 @@ Once you've created a manager account, you can link it to Google Ads accounts by
 ![](/assets/images/Google-Ads-API-2-link.png)
 
 ## 2. Developer Token
-
 A developer token allows your program to connect to the Google Ads API. You can obtain the developer token from **MCC account \> Admin \> API Center**.
 
 ![](/assets/images/Google-Ads-API-3-dev-token.png)
@@ -42,7 +39,6 @@ There are [three access levels](https://developers.google.com/google-ads/api/doc
 - **Standard access:** Standard access allows the developer token to execute an unlimited number of operations per day for most services. This includes services like `GoogleAdsService.Search` and `SearchStream`. To apply for standard access, [fill out the standard access application form](https://support.google.com/adspolicy/contact/standard_token_application).
 
 ## 3. Enable API Access
-
 You need a Google API Console project for creating OAuth 2.0 credentials, which are needed for the authentication and authorization of Google Ads users.
 
 - Go to the [Google API Console](https://console.developers.google.com/project).
@@ -66,7 +62,6 @@ You need a Google API Console project for creating OAuth 2.0 credentials, which 
 ![](/assets/images/Google-Ads-API-5-API.png)
 
 ## 4. Create OAuth 2.0 Credentials
-
 In this step, we will configure an OAuth consent screen and create a client ID and client secret.
 
 - In the [Google Cloud Console](https://console.cloud.google.com), navigate to **APIs & Services \> OAuth consent screen**.
@@ -110,7 +105,6 @@ In this step, we will configure an OAuth consent screen and create a client ID a
 ![](/assets/images/Google-Ads-API-7-Client-ID.png)
 
 ## 5. Generate OAuth 2.0 Refresh Tokens
-
 The refresh token identifies a Google Ads account to make API calls.
 
 - Open the [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/).
@@ -128,7 +122,6 @@ The refresh token identifies a Google Ads account to make API calls.
 ![](/assets/images/Google-Ads-API-9-Ref-Token.png)
 
 ## 6. Make an API Call
-
 - Install the `google-ads` Python library using pip:
 
   `$ pip install google-ads`
