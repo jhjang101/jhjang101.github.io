@@ -1,10 +1,9 @@
 ---
 layout: single 
+classes: wide
 title: "Google Ads API in Python" 
 last_modified_at:
 ---
-
-# Note
 
 ## Introduction
 
@@ -55,14 +54,16 @@ You need a Google API Console project for creating OAuth 2.0 credentials, which 
 - Confirm or edit any remaining fields.
 
 - Click **CREATE**.
-  ![](/assets/images/Google-Ads-API-4-new-proj.png)
+
+![](/assets/images/Google-Ads-API-4-new-proj.png)
 
 - To enable the Google Ads API in your project, open the [API Library](https://console.cloud.google.com/apis/library) in the Google API Console.
 
 - Select your project from the dropdown menu.
 
 - Search for **Google Ads API** and enable it.
-  ![](/assets/images/Google-Ads-API-5-API.png)
+
+![](/assets/images/Google-Ads-API-5-API.png)
 
 ## 4. Create OAuth 2.0 Credentials
 
@@ -85,7 +86,8 @@ In this step, we will configure an OAuth consent screen and create a client ID a
 - Click **SAVE AND CONTINUE**, and again **SAVE AND CONTINUE**.
 
 - Click **BACK TO DASHBOARD**, and then click **PUBLISH APP**.
-  ![](/assets/images/Google-Ads-API-6-OAuth.png)
+
+![](/assets/images/Google-Ads-API-6-OAuth.png)
 
 - To create a client ID and client secret, click **Credentials** to go to the Credentials page.
 
@@ -104,7 +106,8 @@ In this step, we will configure an OAuth consent screen and create a client ID a
 - Click **SAVE**.
 
 - On the confirmation page, copy **Your Client ID** and **Your Client Secret** to your clipboard for configuring your client library later.
-  ![](/assets/images/Google-Ads-API-7-Client-ID.png)
+
+![](/assets/images/Google-Ads-API-7-Client-ID.png)
 
 ## 5. Generate OAuth 2.0 Refresh Tokens
 
@@ -115,11 +118,14 @@ The refresh token identifies a Google Ads account to make API calls.
 - Click the checkbox **Use your own OAuth credentials**.
 - Copy and paste **OAuth Client ID** and **OAuth Client secret**.
 - Select **Google API** and click **Authorize APIs**.
-  ![](/assets/images/Google-Ads-API-8-Ref-Token.png)
+
+![](/assets/images/Google-Ads-API-8-Ref-Token.png)
+
 - On the prompt page, choose a Google account and **Continue**.
 - Click **Exchange authorization code for tokens**.
 - Copy the **Refresh token** to your clipboard for configuring your client library later.
-  ![](/assets/images/Google-Ads-API-9-Ref-Token.png)
+
+![](/assets/images/Google-Ads-API-9-Ref-Token.png)
 
 ## 6. Make an API Call
 
