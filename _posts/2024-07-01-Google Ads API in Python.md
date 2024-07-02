@@ -148,38 +148,38 @@ The refresh token identifies a Google Ads account to make API calls.
 
   ```python
   def main(client, customer_id):
-      ga_service = client.get_service("GoogleAdsService")
+      ga_service = client.get_service("GoogleAdsService")
 
-      query = """
-	        SELECT
-	            campaign.name,
-	            campaign.status,
-	            metrics.impressions,
-	            metrics.clicks,
-	            metrics.conversions,
-	            metrics.average_cpc,
-	            metrics.cost_micros
-	        FROM campaign
-	        WHERE segments.date DURING LAST_WEEK_SUN_SAT"""
+      query = """
+          SELECT
+              campaign.name,
+              campaign.status,
+              metrics.impressions,
+              metrics.clicks,
+              metrics.conversions,
+              metrics.average_cpc,
+              metrics.cost_micros
+          FROM campaign
+          WHERE segments.date DURING LAST_WEEK_SUN_SAT"""
          
-      # Issues a search request using streaming.
-      stream = ga_service.search_stream(customer_id, query)
+      # Issues a search request using streaming.
+      stream = ga_service.search_stream(customer_id, query)
 	    
-      # Access the iterator and convert to dataframe.
-      data = []
+      # Access the iterator and convert to dataframe.
+      data = []
 
-      for batch in stream:
-	        for row in batch.results:
-	            data.append({"Name" : row.campaign.name,
-	                         "Status" : row.campaign.status.name,
-	                         "Impressions" : row.metrics.impressions,
-	                         "Clicks" : row.metrics.clicks,
-	                         "Conversions" : int(row.metrics.conversions),
-	                         "Cost" : row.metrics.cost_micros/1e+6,
-	                         "Cost per Click" : round(row.metrics.average_cpc/1e+6,2)})
-	
-      df = pd.DataFrame(data)
-      return df
+      for batch in stream:
+          for row in batch.results:
+              data.append({"Name" : row.campaign.name,
+                           "Status" : row.campaign.status.name,
+                           "Impressions" : row.metrics.impressions,
+                           "Clicks" : row.metrics.clicks,
+                           "Conversions" : int(row.metrics.conversions),
+                           "Cost" : row.metrics.cost_micros/1e+6,
+                           "Cost per Click" : round(row.metrics.average_cpc/1e+6,2)})
+                           
+      df = pd.DataFrame(data)
+      return df
   ```
 
 - Run the code to test the connection.
@@ -187,9 +187,9 @@ The refresh token identifies a Google Ads account to make API calls.
   df = main(client, "1114567890")
   ```
 
-| 0   | Name            | Status  | Impressions | Clicks | Conversions | Cost  | Cost per Click |
-| --- | --------------- | ------- | ----------- | ------ | ----------- | ----- | -------------- |
-| 1   | Campaign name A | PAUSED  | 0           | 0      | 0           | 0     | 0              |
-| 2   | Campaign name B | ENABLED | 100         | 10     | 1           | 10.99 | 1.01           |
-| 3   | Campaign name C | PAUSED  | 0           | 0      | 0           | 0     | 0              |
-| 4   | Campaign name D | ENABLED | 200         | 20     | 2           | 39.99 | 2.00           |
+  | 0   | Name            | Status  | Impressions | Clicks | Conversions | Cost  | Cost per Click |
+  | --- | --------------- | ------- | ----------- | ------ | ----------- | ----- | -------------- |
+  | 1   | Campaign name A | PAUSED  | 0           | 0      | 0           | 0     | 0              |
+  | 2   | Campaign name B | ENABLED | 100         | 10     | 1           | 10.99 | 1.01           |
+  | 3   | Campaign name C | PAUSED  | 0           | 0      | 0           | 0     | 0              |
+  | 4   | Campaign name D | ENABLED | 200         | 20     | 2           | 39.99 | 2.00           |
