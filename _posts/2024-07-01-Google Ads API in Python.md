@@ -139,7 +139,8 @@ The refresh token identifies a Google Ads account to make API calls.
 - Create a `GoogleAdsClient` instance by calling the `GoogleAdsClient.load_from_storage` method. Pass the path to your `google-ads.yaml` as a string to the method when calling it:
 
   ```python     
-  from google.ads.googleads.client import GoogleAdsClient     
+  from google.ads.googleads.client import GoogleAdsClient
+  import pandas as pd  
   client = GoogleAdsClient.load_from_storage("google-ads.yaml")
   ```
 
@@ -150,32 +151,45 @@ The refresh token identifies a Google Ads account to make API calls.
       ga_service = client.get_service("GoogleAdsService")
 
       query = """
-          SELECT
-            campaign.id,
-            campaign.name
-          FROM campaign
-          ORDER BY campaign.id"""    
+	        SELECT
+	            campaign.name,
+	            campaign.status,
+	            metrics.impressions,
+	            metrics.clicks,
+	            metrics.conversions,
+	            metrics.average_cpc,
+	            metrics.cost_micros
+	        FROM campaign
+	        WHERE segments.date DURING LAST_WEEK_SUN_SAT"""
          
       # Issues a search request using streaming.
       stream = ga_service.search_stream(customer_id, query)
-     
-      # Access the iterator in the same scope as where the service object was created.
+	    
+      # Access the iterator and convert to dataframe.
+      data = []
+
       for batch in stream:
-          for row in batch.results:
-              print(
-                  f"Campaign with ID {row.campaign.id} and name "
-                  f"'{row.campaign.name}' was found."
-              )
+	        for row in batch.results:
+	            data.append({"Name" : row.campaign.name,
+	                         "Status" : row.campaign.status.name,
+	                         "Impressions" : row.metrics.impressions,
+	                         "Clicks" : row.metrics.clicks,
+	                         "Conversions" : int(row.metrics.conversions),
+	                         "Cost" : row.metrics.cost_micros/1e+6,
+	                         "Cost per Click" : round(row.metrics.average_cpc/1e+6,2)})
+	
+      df = pd.DataFrame(data)
+      return df
   ```
 
 - Run the code to test the connection.
   ```python     
-  main(client, "1114567890")
+  df = main(client, "1114567890")
   ```
 
-  ``` output
-  Campaign with ID 11111111111 and name 'Campaign name A' was found.
-  Campaign with ID 22222222222 and name 'Campaign name B' was found.
-  Campaign with ID 33333333333 and name 'Campaign name C' was found.
-  Campaign with ID 44444444444 and name 'Campaign name D' was found.
-  ```
+| 0   | Name            | Status  | Impressions | Clicks | Conversions | Cost  | Cost per Click |
+| --- | --------------- | ------- | ----------- | ------ | ----------- | ----- | -------------- |
+| 1   | Campaign name A | PAUSED  | 0           | 0      | 0           | 0     | 0              |
+| 2   | Campaign name B | ENABLED | 100         | 10     | 1           | 10.99 | 1.01           |
+| 3   | Campaign name C | PAUSED  | 0           | 0      | 0           | 0     | 0              |
+| 4   | Campaign name D | ENABLED | 200         | 20     | 2           | 39.99 | 2.00           |
