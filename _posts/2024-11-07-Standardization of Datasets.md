@@ -86,7 +86,7 @@ MinMaxScaler().fit_transform(X)
 
 MaxAbsScaler rescales a feature by its maximum absolute value.
 
-$$ X_{std} = \frac{X} {max(|X|)}$$
+$$X_{std} = \frac{X} {max(|X|)}$$
 
 ``` python
 from sklearn.preprocessing import MaxAbsScaler
@@ -111,7 +111,9 @@ MaxAbsScaler().fit_transform(X)
 ### RobustScaler: `RobustScaler()`
 
 RobustScaler rescales a feature by removing the median and scaling it by the interquartile range.
-$$ X_{std} = \frac{X - \tilde{X}} {IQR}$$
+
+$$X_{std} = \frac{X - \tilde{X}} {IQR}$$
+
 where $\tilde{X}$ is the median of the feature and $IQR$ is The interquartile range (Q3 - Q1).
 
 ``` python
