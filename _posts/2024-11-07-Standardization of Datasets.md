@@ -31,7 +31,7 @@ from sklearn.preprocessing import (
 
 StandardScaler scales a features by removing the mean and scaling to unit variance.
 
-$$ X\_std = \frac{X - \overline{X}} {\sigma} $$
+$$ X_{std} = \frac{X - \overline{X}} {\sigma} $$
 
 where $ \overline{X} $ is the mean of the feature and $\sigma$ is the standard deviation.
 
@@ -60,8 +60,7 @@ StandardScaler().fit_transform(X)
 
 MinMaxScaler rescales a feature to a specific range, typically between 0 and 1.
 
-$$X\_{std} = \frac{X - min(X)} {max(X) - min(X)}$$
-
+$$X_{std} = \frac{X - min(X)} {max(X) - min(X)}$$
 
 ``` python
 from sklearn.preprocessing import MinMaxScaler
@@ -86,7 +85,8 @@ MinMaxScaler().fit_transform(X)
 ### MaxAbsScaler: `MaxAbsScaler()`
 
 MaxAbsScaler rescales a feature by its maximum absolute value.
-$$ X\_std = \frac{X} {max(|X|)}$$
+
+$$ X_{std} = \frac{X} {max(|X|)}$$
 
 ``` python
 from sklearn.preprocessing import MaxAbsScaler
@@ -111,7 +111,7 @@ MaxAbsScaler().fit_transform(X)
 ### RobustScaler: `RobustScaler()`
 
 RobustScaler rescales a feature by removing the median and scaling it by the interquartile range.
-$$ X\_std = \frac{X - \tilde{X}} {IQR}$$
+$$ X_{std} = \frac{X - \tilde{X}} {IQR}$$
 where $\tilde{X}$ is the median of the feature and $IQR$ is The interquartile range (Q3 - Q1).
 
 ``` python
