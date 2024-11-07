@@ -167,3 +167,7 @@ RobustScaler().fit_transform(X)
 - **Rank-based:** It maps data points to quantiles of a desired distribution (uniform or normal).
 - **Robust to Outliers:** It's less sensitive to outliers as it focuses on the relative ranks of data points.
 - **Preserves Rank Order:** The relative order of data points remains unchanged after transformation.
+
+## External Link
+
+[Jupyter notebook](https://github.com/jhjang101/blog-nookbook/blob/1948cb7fc94706f2f736a5b3fa8a3444ec426fcc/scalers.ipynb)
