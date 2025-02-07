@@ -38,7 +38,8 @@ nvidia-smi -l 1
 ```
 
 This will display information like GPU utilization and power usage at specified intervals (e.g., every 1 second). If your LLM isn't utilizing the GPU, consider installing the [Nvidia CUDA toolkit](https://developer.nvidia.com/cuda-downloads) .
-\## Integration with Continue VSCode Plugin
+
+## Integration with Continue VSCode Plugin
 You can integrate a local LLM into the [Continue](https://www.continue.dev/) VSCode Plugin as an AI code assistant. Detailed instructions are available in the [Open WebUI documentation](https://docs.openwebui.com/tutorials/integrations/continue-dev) .
 Here is an example of `config.json`
 
