@@ -15,7 +15,7 @@ In this guide, I will walk through the steps to run large language models (LLMs)
 ``` sh
 ollama run phi4
 ```
-4.  That's all!
+4. That's all!
 
 ## Setting Up Open WebUI
 Open WebUI is an extensible, feature-rich AI platform that operates offline with an OpenAI-compatible interface. It's recommended to use Docker for running Open WebUI.
@@ -30,7 +30,7 @@ Alternatively, you can install Open WebUI bundled with Ollama with GPU support:
 ``` sh
 docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:ollama
 ```
-3.  **Access Open WebUI** : Navigate to `localhost:3000` in your web browser.
+3. **Access Open WebUI** : Navigate to `localhost:3000` in your web browser.
 
 ## Nvidia CUDA Toolkit
 
