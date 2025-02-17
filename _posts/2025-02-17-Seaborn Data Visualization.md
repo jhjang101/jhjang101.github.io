@@ -20,7 +20,6 @@ import seaborn as sns
 
 We will use iris dataset to create plots.
 ```python
-df = pd.read_csv('exams.csv')
 df = sns.load_dataset('iris')
 df.head()
 ```
